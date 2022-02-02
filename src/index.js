@@ -1,5 +1,5 @@
 import './index.css';
-import {css, Global} from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
@@ -19,11 +19,11 @@ const globalStyles = css`
   }
 `;
 ReactDOM.render(
-    <React.StrictMode>
-        <Global styles={globalStyles}/>
-        <App/>
-    </React.StrictMode>,
-    document.getElementById('root'),
+  <React.StrictMode>
+    <Global styles={globalStyles} />
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
