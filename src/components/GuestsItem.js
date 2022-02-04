@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 
 export default function GuestsItem(props) {
-  console.log('export default function GuestsList', props.children);
+  console.log('export default function GuestsItem', props.children);
   const itemRef = useRef(props.item.id);
 
   async function removeGuest(item, ref) {
@@ -22,7 +22,7 @@ export default function GuestsItem(props) {
   return (
     <li key={`item-${props.item.id}`} data-remove={props.item.id} ref={itemRef}>
       <div>
-        {props.item.firstName} {props.item.lastName}
+        {props.item.id}. {props.item.firstName} {props.item.lastName}
       </div>
       <button
         data-item-id={props.item.id}

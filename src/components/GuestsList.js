@@ -1,4 +1,3 @@
-// import { useEffect, useRef, useState } from 'react';
 import GuestsItem from './GuestsItem';
 
 export default function GuestsList(props) {
