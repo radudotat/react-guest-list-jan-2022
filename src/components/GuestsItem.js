@@ -59,6 +59,7 @@ export default function GuestsItem(props) {
     <li
       key={`item-${props.item.id}`}
       data-item-id={props.item.id}
+      data-test-id="guest"
       ref={itemRef}
     >
       <input

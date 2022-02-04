@@ -7,7 +7,6 @@ export default function GuestsList(props) {
     // console.log('map', item);
     return (
       <GuestsItem
-        data-test-id="guest"
         key={`item-${item.id}`}
         apiUrl={props.apiUrl}
         item={item}
