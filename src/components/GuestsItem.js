@@ -6,6 +6,8 @@ export default function GuestsItem(props) {
   const [isAttending, setIsAttending] = useState(false);
 
   async function removeGuest(item, ref) {
+    props.setIsLoading(true);
+
     const itemId = ref.current.getAttribute('data-item-id');
     // console.log('removeGuest', itemId, ref);
     const response = await fetch(`${props.apiUrl}/guests/${itemId}`, {
@@ -23,6 +25,8 @@ export default function GuestsItem(props) {
   }
 
   async function updateGuest(item, ref) {
+    props.setIsLoading(true);
+
     // console.log('updateGuest', item, ref);
     const itemId = ref.current.getAttribute('data-item-id');
     const attendingStatus = item.checked;
@@ -66,7 +70,6 @@ export default function GuestsItem(props) {
         onChange={(e) => {
           // console.log('checked', e.target, e.target.checked);
           e.preventDefault();
-          props.setIsLoading(true);
           updateGuest(e.target, itemRef)
             .then(() => {
               props.setIsLoading(false);
@@ -83,11 +86,16 @@ export default function GuestsItem(props) {
       <button
         // data-item-id={props.item.id}
         aria-label={`Remove ${props.item.firstName} ${props.item.lastName}`}
+        disabled={props.isLoading}
         onClick={(e) => {
           e.preventDefault();
-          removeGuest(e.target, itemRef).catch((err) => {
-            console.error(err);
-          });
+          removeGuest(e.target, itemRef)
+            .then(() => {
+              props.setIsLoading(false);
+            })
+            .catch((err) => {
+              console.error(err);
+            });
         }}
       >
         Remove

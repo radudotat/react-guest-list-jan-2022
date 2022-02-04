@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import AddGuestForm from './components/forms/AddGuestForm';
 import GuestsList from './components/GuestsList';
 
-const apiUrl = 'http://localhost:4000';
+const apiUrl = 'https://express-guest-list-api-jan-22.herokuapp.com';
 
 function App() {
   // console.clear();
