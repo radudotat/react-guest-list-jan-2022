@@ -38,11 +38,11 @@
 }
 
 .loading {
-  visibility: visible;
+  display: block;
 }
 
 .loaded {
-  visibility: hidden;
+  display: none;
 }
 
 li {
