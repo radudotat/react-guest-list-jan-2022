@@ -38,7 +38,12 @@ function App() {
         <h1>Guests</h1>
       </div>
       <ul>
-        <GuestsList apiUrl={apiUrl} guestsList={guestsList} />
+        <GuestsList
+          apiUrl={apiUrl}
+          guestsList={guestsList}
+          isAttending={isAttending}
+          setIsAttending={setIsAttending}
+        />
       </ul>
       <AddGuestForm
         className="add-guest-form"

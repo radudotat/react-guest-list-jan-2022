@@ -6,7 +6,13 @@ export default function GuestsList(props) {
   const guestsList = props.guestsList.map((item) => {
     // console.log('map', item);
     return (
-      <GuestsItem key={`item-${item.id}`} apiUrl={props.apiUrl} item={item} />
+      <GuestsItem
+        key={`item-${item.id}`}
+        apiUrl={props.apiUrl}
+        item={item}
+        // isAttending={props.isAttending}
+        // setIsAttending={props.setIsAttending}
+      />
     );
   });
 
