@@ -10,6 +10,8 @@ export default function GuestsList(props) {
         key={`item-${item.id}`}
         apiUrl={props.apiUrl}
         item={item}
+        isLoading={props.isLoading}
+        setIsLoading={props.setIsLoading}
         // isAttending={props.isAttending}
         // setIsAttending={props.setIsAttending}
       />

@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function GuestsItem(props) {
-  // console.log('export default function GuestsItem', props);
+  console.log('export default function GuestsItem', props);
   const itemRef = useRef(props.item.id);
   const [isAttending, setIsAttending] = useState(false);
 
@@ -11,7 +11,9 @@ export default function GuestsItem(props) {
     const response = await fetch(`${props.apiUrl}/guests/${itemId}`, {
       method: 'DELETE',
     });
+
     const deletedGuest = await response.json();
+
     if (!deletedGuest.error) {
       // console.log('deletedGuest', deletedGuest);
       if (itemId === deletedGuest.id) {
@@ -40,13 +42,12 @@ export default function GuestsItem(props) {
     if (!updatedGuest.error) {
       if (itemId === updatedGuest.id) {
         setIsAttending(updatedGuest.attending);
-        console.log('++++updatedGuest', props, item, updatedGuest);
+        // console.log('++++updatedGuest', props, item, updatedGuest);
       }
     }
   }
 
   useEffect(() => {
-    // this empty array means this code is going to run only at first render
     setIsAttending(props.item.attending);
   }, [props.item.attending]);
 
@@ -59,14 +60,21 @@ export default function GuestsItem(props) {
       <input
         type="checkbox"
         name="attending"
+        disabled={props.isLoading}
         aria-label={`${props.item.firstName} ${props.item.lastName} attending ${props.item.attending}`}
         checked={isAttending}
         onChange={(e) => {
-          console.log('checked', e.target, e.target.checked);
+          // console.log('checked', e.target, e.target.checked);
           e.preventDefault();
-          updateGuest(e.target, itemRef).catch((err) => {
-            console.error(err);
-          });
+          props.setIsLoading(true);
+          updateGuest(e.target, itemRef)
+            .then(() => {
+              props.setIsLoading(false);
+            })
+            .catch((err) => {
+              console.error(err);
+              props.setIsLoading(false);
+            });
         }}
       />
       <div>

@@ -79,6 +79,7 @@ export default function AddGuestForm(props) {
           <input
             name="firstName"
             ref={itemFirstName}
+            disabled={props.isLoading}
             // value={props.firstName}
             onChange={(event) => {
               handleInputChange(event);
@@ -91,6 +92,7 @@ export default function AddGuestForm(props) {
           <input
             name="lastName"
             ref={itemLastName}
+            disabled={props.isLoading}
             // value={props.lastName}
             onChange={(event) => {
               handleInputChange(event);
@@ -102,7 +104,7 @@ export default function AddGuestForm(props) {
             }}
           />
         </label>
-        <input type="submit" value="Add Guest" />
+        {/* <input type="submit" value="Add Guest" /> */}
       </form>
     </>
   );

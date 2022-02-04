@@ -37,6 +37,14 @@
   }
 }
 
+.loading {
+  visibility: visible;
+}
+
+.loaded {
+  visibility: hidden;
+}
+
 li {
   display: flex;
   align-content: center;
