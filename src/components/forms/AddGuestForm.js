@@ -75,7 +75,7 @@ export default function AddGuestForm(props) {
         }}
       >
         <label>
-          First Name:
+          First name
           <input
             name="firstName"
             ref={itemFirstName}
@@ -88,7 +88,7 @@ export default function AddGuestForm(props) {
           />
         </label>
         <label>
-          Last Name:
+          Last name
           <input
             name="lastName"
             ref={itemLastName}
