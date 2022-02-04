@@ -38,7 +38,7 @@ function App() {
   }, []);
 
   return (
-    <div data-test-id="guest" className="App">
+    <div className="App">
       <div>
         <h1>Guests</h1>
       </div>
